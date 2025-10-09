@@ -1,0 +1,15 @@
+meta {
+  name: download non-existent sheet
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://localhost:8081/sheets/c9f7bdd0-52ec-4d84-8f82-2cdb98fc7b98
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "form-forge",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

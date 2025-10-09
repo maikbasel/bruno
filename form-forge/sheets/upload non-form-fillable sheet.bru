@@ -1,0 +1,25 @@
+meta {
+  name: upload non-form-fillable sheet
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:8081/sheets
+  body: multipartForm
+  auth: inherit
+}
+
+body:multipart-form {
+  sheet: @file(/home/maikbasel/IdeaProjects/form-forge/sheets/adapters/pdf/tests/fixtures/empty_pdf.pdf)
+}
+
+script:post-response {
+  const locationHeader = res.getHeader('location');
+  
+  bru.setVar('sheetLocation', locationHeader);
+}
+
+settings {
+  encodeUrl: true
+}

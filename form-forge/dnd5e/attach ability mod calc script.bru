@@ -1,0 +1,22 @@
+meta {
+  name: attach ability mod calc script
+  type: http
+  seq: 1
+}
+
+put {
+  url: http://localhost:8081/dnd/5e/{{sheetId}}/ability-modifier
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "abilityModifierFieldName": "STRmod",
+    "abilityScoreFieldName": "STR"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

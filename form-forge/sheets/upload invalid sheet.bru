@@ -1,0 +1,25 @@
+meta {
+  name: upload invalid sheet
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:8081/sheets
+  body: multipartForm
+  auth: inherit
+}
+
+body:multipart-form {
+  sheet: @file(/home/maikbasel/IdeaProjects/form-forge/tests/fixtures/fake_pdf.pdf)
+}
+
+script:post-response {
+  const locationHeader = res.getHeader('location');
+  
+  bru.setVar('sheetLocation', locationHeader);
+}
+
+settings {
+  encodeUrl: true
+}
