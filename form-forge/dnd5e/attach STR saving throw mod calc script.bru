@@ -1,0 +1,24 @@
+meta {
+  name: attach STR saving throw mod calc script
+  type: http
+  seq: 2
+}
+
+put {
+  url: http://localhost:8081/dnd5e/{{sheetId}}/saving-throw-modifier
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "abilityModifierFieldName": "STRmod",
+    "proficiencyFieldName": "Check Box 11",
+    "proficiencyBonusFieldName": "ProfBonus",
+    "savingThrowModifierFieldName": "ST Strength"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
